@@ -12,3 +12,6 @@ for link in soup.findAll("a"):
         quote_html = urlopen(quote_url).read()
         quote_soup = BeautifulSoup(quote_html)
         quote = quote_soup.find("div", attrs={"class": "scrabble_clear"}).string
+
+
+#Aquí por algún motivo no me extrae el texto que quiero        
