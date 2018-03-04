@@ -1,0 +1,31 @@
+utf charset
+
+from BeautifulSoup import BeautifulSoup
+from urllib2 import urlopen
+
+url = "https://en.wikipedia.org/wiki/Game_of_Thrones"
+response = urlopen(url).read()
+soup = BeautifulSoup(response)
+
+print soup.html.head.title.string
+
+for link in soup.findAll("a"):
+    if link.string == "Season":
+        season_url = "https://en.wikipedia.org/wiki/Game_of_Thrones" + link["href"]
+        season_html = urlopen(season_url).read()
+        season_soup = BeautifulSoup(season_html)
+        season_table = season.soup.find("table", attrs={"class": "wikitable plainrowheaders wikiepisodetable"}).string
+            if season_table:
+                season_rows = season_table.findAll('tr', attrs={'class': 'vevent'})
+                if season_rows:
+                    for entry_row in season_rows:
+                        season_views = season_rows.findAll('td')[-1]
+                        #aquí con lo del "-1" me pierdo (lo he visto en la solucion).
+                        #No se como seleccionar el numero, pero entiendo que habria que transformarlo a float
+
+
+
+
+
+
+
