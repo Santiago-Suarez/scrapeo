@@ -7,9 +7,8 @@ url = 'http://quotes.yourdictionary.com/theme/marriage/'
 read_url = urlopen(url).read()
 quote_soup = BeautifulSoup(read_url)
 
-quote = quote_soup.findAll("p", attrs={"class": "quoteContent"})
+quote = quote_soup.findAll("p", attrs={"class": "quoteContent"})[:5]
 
 for entry in quote and range(5):
     print entry.text
     
-#me gustaría (como dice el ejercicio), extraer sólo 5 citas, pero no consigo encontrar la sintaxis, veo que se puede hacer "for entry in quote", pero no cómo añadir la información de los 5 bucles
