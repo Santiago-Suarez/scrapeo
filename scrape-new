@@ -19,7 +19,7 @@ for link in soup.findAll("a"):
         name = person_soup.find("div", attrs={"class": "col-md-8"}).h1.string
         city = person_soup.find("span", attrs={"data-city": True}).string
 
-        csv_file.write(name+"\n")  # \n will create a new line
+        csv_file.write(name+", "city+"\n")  # \n will create a new line
 
 # close CSV file
 csv_file.close()
