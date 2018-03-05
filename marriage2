@@ -9,6 +9,5 @@ quote_soup = BeautifulSoup(read_url)
 
 quote = quote_soup.findAll("p", attrs={"class": "quoteContent"})[:5]
 
-for entry in quote and range(5):
+for entry in quote:
     print entry.text
-    
